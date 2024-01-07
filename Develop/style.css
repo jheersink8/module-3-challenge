@@ -118,6 +118,24 @@ button[disabled] {
   overflow: hidden;
 }
 
+.checkbox{
+display: flex;
+line-height: 8px;
+}
+
+.textbox{
+  line-height: 20px;
+  margin: 4px 0px 8px 0px;
+}
+
+.btn-card{
+  text-align: center;
+}
+
+.hide{
+  display: none;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
