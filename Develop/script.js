@@ -18,7 +18,8 @@ var characterList = {
   special: [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "^", "_", "`", "{", "|", "}", "~", '"', '/', ']'],
 };
 
-// Array for final password characters
+// Array for usable charcerts in final password and array for final password characters
+var useableCharacters = [];
 var passwordArray = [];
 
 
@@ -28,7 +29,7 @@ function checkCheckbox(x, y) {
   if (x.checked) {
     var random1 = (Math.floor(Math.random() * y.length));
     passwordArray.push(y[random1]);
-    console.log(passwordArray);
+    useableCharacters.push(...y);
   }
 }
 
@@ -48,11 +49,12 @@ function criteria() {
 // At a high level, the algorithm works in four parts.
 // 1. Pick ONE random character from each CHECKED character type and put in an array (which will be apart of the final PW). This ensures (per the acceptance criteria) that at least one character will get used in the password.
 // 2. Subtract the number of boxes checked from the length of the password the user defined (call this "modUserLength"). This is how many more characters need to be added to the PW array. 
-// 3. Put all the checked box objects in an array. Randomly pick "modUserLength" characters from that array and place them in the final PW array. For good measuere, scramble the content of the PW array into the text box for the user. 
+// 3. Put all the checked box objects in an array. Randomly pick the number of "modUserLength" characters from that array and place them in the final PW array. For good measuere, scramble the content of the PW array into the text box for the user. 
 // 4. Run a validation to make sure the PW match the criteria given by the user. 
 
 function writePassword() {
   // Algorithm part 1
+  useableCharacters.length = 0;
   passwordArray.length = 0;
   checkCheckbox(lowerChk, characterList.lower);
   checkCheckbox(upperChk, characterList.upper);
@@ -61,10 +63,22 @@ function writePassword() {
 
   // Algorithm part 2
   var lengthTxt = document.getElementById("pwLength").value;
-  var modUserLength = (lengthTxt-passwordArray.length);
-  console.log(modUserLength);
+  var modUserLength = (lengthTxt - passwordArray.length);
+  
+  // Algorithm part 3
+  var random2 = Math.floor(Math.random()*useableCharacters.length);
+  
+  passwordArray.push(useableCharacters[random2]);
+
+
+  console.log(passwordArray);
+  // console.log(modUserLength);
+  // console.log(passwordArray);
+  // console.log(useableCharacters);
+  // console.log(useableCharacters.length);
 }
 
+// Algorithm part 3
 
 
 
