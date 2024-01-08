@@ -54,7 +54,7 @@ header {
   min-height: 100px;
 }
 
-.card-footer {
+.card-footer, #confirm{
   text-align: center;
 }
 
@@ -128,7 +128,7 @@ line-height: 8px;
   margin: 4px 0px 8px 0px;
 }
 
-.btn-card{
+.confirm-card{
   text-align: center;
 }
 
