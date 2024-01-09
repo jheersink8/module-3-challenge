@@ -17,10 +17,9 @@ var characterList = {
   special: [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "^", "_", "`", "{", "|", "}", "~", '"', '/', ']'],
 };
 
-// Array for usable charcerts in final password and array for final password characters
+// Array for usable characters in final password and array for final password characters
 var useableCharacters = [];
 var passwordArray = [];
-
 
 // Fuction to avoid DRY with checkboxes
 function checkCheckbox(x, y) {
@@ -31,7 +30,7 @@ function checkCheckbox(x, y) {
   }
 }
 
-// Function to show password criteria options
+// Function to show password criteria options after initial button click
 function criteria() {
   var showCriteria = document.getElementById("criteria");
   showCriteria.classList.remove("hide");
@@ -40,14 +39,23 @@ function criteria() {
   return
 };
 
-// Function to write password. 
-// At a high level, the algorithm works in four parts.
-// 1. Pick ONE random character from each CHECKED character type and put in an array (which will be a part of the final PW). This ensures (per the acceptance criteria) that at least one desired character WILL get used in the password.
-// 2. Subtract the number of boxes checked from the length of the password the user defined (call this "modUserLength"). This is how many more characters need to be added to the PW array. 
-// 3. Put all the checked box objects in an array. Randomly pick the number of "modUserLength" characters from that array and place them in the final PW array. For good security measuere, scramble the content of the PW array into the text box for the user. 
-// 4. Run a validation to make sure the PW match the criteria given by the user. 
-
+// Function to write password. Refer to algorithm definition in readme
 function writePassword() {
+  // Validation check
+  var lengthTxt = document.getElementById("pwLength").value;
+  console.log(lengthTxt);
+  if (lengthTxt < 8 || lengthTxt > 128) {
+    alert("Please enter a numeric value between 8 and 128!")
+    return 
+  } else if (isNaN(lengthTxt)) {
+    alert("Please enter a numeric value between 8 and 128!")
+    return
+  } else if (!lowerChk.checked && !upperChk.checked && !numericChk.checked && !specialChk.checked) {
+    alert("Please check at least one criteria box!");
+    return
+  } else {
+  }
+
   // Algorithm part 1
   useableCharacters.length = 0;
   passwordArray.length = 0;
@@ -57,9 +65,8 @@ function writePassword() {
   checkCheckbox(specialChk, characterList.special);
 
   // Algorithm part 2
-  var lengthTxt = document.getElementById("pwLength").value;
   var modUserLength = (lengthTxt - passwordArray.length);
-  
+
   // Algorithm part 3
   for (var i = 0; i < modUserLength; i++) {
     var random2 = Math.floor(Math.random() * useableCharacters.length);
@@ -67,32 +74,11 @@ function writePassword() {
     // Randomize placement of newly inserted characters
     var random3 = Math.floor(Math.random() * modUserLength);
     passwordArray.splice(random3, 0, randomCharacter);
-    
     // Output to text field
     var password = (passwordArray.join(""));
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
-
   }
-
-  console.log(passwordArray)
-  console.log(passwordArray.length);
-  // console.log(characterList.lower);
-  // validation();
-
-  // Algorithm part 4 
-  // function validation() {
-  //   for (var i = 0; i < characterList.lower.length; i++);
-  //   for (var j = 0; j < passwordArray.length; j++); {
-  //     if (passwordArray[j] === characterList.lower[i]); {
-  //       var varify = document.getElementById("lowerText");
-  //       varify.classList.add("green");{
-
-  //       }
-  //     }
-  //     return
-  //   }
-  // }
 }
 
 // Add event listener to generate button

@@ -1,3 +1,10 @@
+// At a high level, the algorithm works in three parts.
+// 1. Pick ONE random character from each CHECKED character type and put in an array (which will be a part of the final PW). This ensures (per the acceptance criteria) that at least one desired character WILL get used in the password.
+// 2. Subtract the number of boxes checked from the length of the password the user defined (call this "modUserLength"). This is how many more characters need to be added to the PW array. 
+// 3. Put all the checked box objects in an array. Randomly pick the number of "modUserLength" characters from that array and place them in the final PW array. For good security measuere, scramble the content of the PW array into the text box for the user. This way, the first checked box item is not [predictably] always first.
+
+
+
 # 03 JavaScript: Password Generator
 
 ## Your Task
