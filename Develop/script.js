@@ -46,6 +46,7 @@ function criteria() {
 // 2. Subtract the number of boxes checked from the length of the password the user defined (call this "modUserLength"). This is how many more characters need to be added to the PW array. 
 // 3. Put all the checked box objects in an array. Randomly pick the number of "modUserLength" characters from that array and place them in the final PW array. For good security measuere, scramble the content of the PW array into the text box for the user. 
 // 4. Run a validation to make sure the PW match the criteria given by the user. 
+
 function writePassword() {
   // Algorithm part 1
   useableCharacters.length = 0;
@@ -58,7 +59,7 @@ function writePassword() {
   // Algorithm part 2
   var lengthTxt = document.getElementById("pwLength").value;
   var modUserLength = (lengthTxt - passwordArray.length);
-
+  
   // Algorithm part 3
   for (var i = 0; i < modUserLength; i++) {
     var random2 = Math.floor(Math.random() * useableCharacters.length);
@@ -66,18 +67,34 @@ function writePassword() {
     // Randomize placement of newly inserted characters
     var random3 = Math.floor(Math.random() * modUserLength);
     passwordArray.splice(random3, 0, randomCharacter);
+    
     // Output to text field
+    var password = (passwordArray.join(""));
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
-    password = (passwordArray.join(""));
+
   }
 
-  // Algorithm part 4 
+  console.log(passwordArray)
+  console.log(passwordArray.length);
+  // console.log(characterList.lower);
+  // validation();
 
+  // Algorithm part 4 
+  // function validation() {
+  //   for (var i = 0; i < characterList.lower.length; i++);
+  //   for (var j = 0; j < passwordArray.length; j++); {
+  //     if (passwordArray[j] === characterList.lower[i]); {
+  //       var varify = document.getElementById("lowerText");
+  //       varify.classList.add("green");{
+
+  //       }
+  //     }
+  //     return
+  //   }
+  // }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", criteria);
 confirmBtn.addEventListener("click", writePassword);
-
-

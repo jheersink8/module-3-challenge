@@ -136,6 +136,15 @@ line-height: 8px;
   display: none;
 }
 
+.green {
+  color: green;
+}
+
+.strike {
+  text-decoration:line-through;
+  font-style: italic;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
