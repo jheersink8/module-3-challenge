@@ -25,7 +25,7 @@ To guarantee that the password complexity is met, I defined the algorithm below 
 
 3. Put all the checked box objects in an array (i.e. if “lower characters” is checked, put all the lower characters from the object inside a random password generator array). Randomly pick the number of "modUserLength" characters from that array and place them in the final PW array. For good security measures, randomize the position of the newly inserted characters in the text box for the user. This way, the first checked box item is not always [predictably] first.
 
-![Screenshot of 90 character password with lower case and numbers selected](/Assets/deploy_screenshot.png)
+![Screenshot of 90 character password with lower case and numbers selected](/assets/deploy_screenshot.png)
 
 
 ## Credits 
