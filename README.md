@@ -8,10 +8,10 @@ This is a tool which will randomly generate a password for users depending on th
 As the developer, my biggest motivation in building this was to get more exposure to JavaScript functionality. Additionally, I wanted exposure to how HTML can dictate JavaScript functions and how JavaScript can in turn impact the HTML. I treated this challenge as close as I could to a real-world scenario where a customer asked me to build a random password generator for them. Emulating that experience forced me to stay within the acceptance criteria scope and not add unwanted features that I may have incorporated. 
 
 At the end of this challenge, some of the things I learned are (but not limited to):
--Building functions one time that can be used multiple times later. 
--Thinking through and creating an algorithm that will solve the user’s problem before typing a single line of code. 
--Using JavaScript features like functions, if/else statements, objects, and for loops. 
--Using external resources (the Internet) to research new tools that I have not been exposed to before. 
+- Building functions one time that can be used multiple times later. 
+- Thinking through and creating an algorithm that will solve the user’s problem before typing a single line of code. 
+- Using JavaScript features like functions, if/else statements, objects, and for loops. 
+- Using external resources (the Internet) to research new tools that I have not been exposed to before. 
 
 ## Usage
 Once at the webpage, the user will click the “Generate Password” button to expand the list of complexity criteria. From here, the user will define (1) how long they want their password to be (between 8 and 128 characters per the acceptance criteria) and (2) what characters should be incorporated (lower case, upper case, numeric, and/or special characters). After the criteria has been defined, they will hit the “Confirm and Generate” button to have a password generated that meets the criteria above (see screenshot below). 
