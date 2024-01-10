@@ -43,7 +43,6 @@ function criteria() {
 function writePassword() {
   // Validation check
   var lengthTxt = document.getElementById("pwLength").value;
-  console.log(lengthTxt);
   if (lengthTxt < 8 || lengthTxt > 128) {
     alert("Please enter a numeric value between 8 and 128!")
     return 
